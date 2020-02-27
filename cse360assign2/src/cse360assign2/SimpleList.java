@@ -141,4 +141,60 @@ public class SimpleList {
 		}
 		return found;
 	}
+
+	/**
+	 * This method adds the new element to the end of the list. If the list is full,
+	 * the size is resized by 50 percent of the original length.
+	 * 
+	 * @param newElement This is the element being added to the end of the list.
+	 */
+	public void append(int newElement) {
+		int size = (int) (list.length + (list.length * .5));
+		if (count == list.length) {
+			list = Arrays.copyOf(list, size);
+		}
+		int[] tempArray = new int[list.length];
+		tempArray = list;
+		tempArray[count] = newElement;
+		list = tempArray;
+		count++;
+	}
+
+	/**
+	 * This method returns the element at the 0th index. If the list is empty return
+	 * -1.
+	 * 
+	 * @return firstOne is the element at the 0th index.
+	 */
+	public int first() {
+		if (list[0] != '\0') {
+			int firstOne = list[0];
+			return firstOne;
+		}
+		return -1;
+	}
+
+	/**
+	 * This method returns the element at the last index. If the list is empty
+	 * return -1.
+	 * 
+	 * @return lastOne This variable is the last element in the list.
+	 */
+	public int last() {
+		if (list[0] != '\0') {
+			int lastOne = list[count - 1];
+			return lastOne;
+		}
+		return -1;
+	}
+
+	/**
+	 * This method returns the size of the list.
+	 * 
+	 * @return sizeOfArray This is the current size of the list.
+	 */
+	public int size() {
+		int sizeOfArray = list.length;
+		return sizeOfArray;
+	}
 }
